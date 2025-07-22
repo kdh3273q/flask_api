@@ -27,7 +27,7 @@ def upload_file():
 @app.route('/result/<job_id>', methods=['GET'])
 def download_excel(job_id):
     #file_path = os.path.join(UPLOAD_FOLDER, f"result_{job_id}.xlsx")
-    file_path = os.path.join(UPLOAD_FOLDER, f"TEST_CRS_ai.xlsx")
+    file_path = os.path.join(UPLOAD_FOLDER, f"TEST_CSR_ai.xlsx")
 
 
     if not os.path.exists(file_path):
