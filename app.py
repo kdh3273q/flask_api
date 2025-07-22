@@ -7,7 +7,7 @@ CORS(app)
 
 @app.route('/result/<job_id>', methods=['GET'])
 def download_excel(job_id):
-    file_path = f"./results/result_{job_id}.xlsx"
+    file_path = f"./results/TEST_CSR_ai_{job_id}.xlsx"
     
     if not os.path.exists(file_path):
         return jsonify({"error": "File not found"}), 404
@@ -15,7 +15,7 @@ def download_excel(job_id):
     return send_file(
         file_path,
         as_attachment=True,
-        download_name=f"테스트결과_{job_id}.xlsx",
+        download_name=f"TEST_CSR_ai_{job_id}.xlsx",
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
