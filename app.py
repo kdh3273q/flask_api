@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-UPLOAD_FOLDER = "./results"
+UPLOAD_FOLDER = "./result"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # 🔹 1. 로컬 Flask에서 파일 업로드 받는 API
