@@ -17,7 +17,7 @@ def upload_file():
     if not file or not job_id:
         return jsonify({"error": "Missing file or job_id"}), 400
 
-    filename = f"result_{job_id}.xlsx"
+    filename = f"TEST_CSR{job_id}_ai.xlsx"
     save_path = os.path.join(UPLOAD_FOLDER, filename)
     file.save(save_path)
 
@@ -26,8 +26,8 @@ def upload_file():
 # 🔹 2. 업로드된 파일을 OutSystems에 serve하는 API
 @app.route('/result/<job_id>', methods=['GET'])
 def download_excel(job_id):
-    #file_path = os.path.join(UPLOAD_FOLDER, f"result_{job_id}.xlsx")
-    file_path = os.path.join(UPLOAD_FOLDER, f"TEST_CSR_ai.xlsx")
+    file_path = os.path.join(UPLOAD_FOLDER, f"TEST_CSR{job_id}_ai.xlsx")
+    #file_path = os.path.join(UPLOAD_FOLDER, f"TEST_CSR_ai.xlsx")
 
 
     if not os.path.exists(file_path):
@@ -36,7 +36,7 @@ def download_excel(job_id):
     return send_file(
         file_path,
         as_attachment=True,
-        download_name=f"TEST_{job_id}.xlsx",
+        download_name=f"TEST_CSR{job_id}_ai.xlsx",
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
