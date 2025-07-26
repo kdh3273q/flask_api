@@ -40,6 +40,10 @@ def download_excel(job_id):
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
+@app.route('/')
+def index():
+    return "✅ Flask API is running!", 200
+
 # 🔹 3. Render에서 필수: PORT 환경변수 받기
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
